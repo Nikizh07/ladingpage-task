@@ -4,19 +4,26 @@ import room from "../assets/room.jpg";
 
 const Promotion = () => {
   return (
-    <Box display={"flex"} padding={5} height={"70vh"}>
+    <Box
+      display={"flex"}
+      flexDirection={{ xs: "column", md: "row" }} // Stack on small screens, row on larger screens
+      padding={5}
+      height={{ xs: "auto", md: "70vh" }} // Adjust height for smaller screens
+    >
+      {/* Left Section: Text Content */}
       <Box
-        width={"50%"}
+        width={{ xs: "100%", md: "50%" }} // Full width on small screens, half on larger screens
         padding={4}
         display="flex"
         flexDirection="column"
         justifyContent="center"
-        marginBottom={"4rem"}
       >
         <Typography
-          variant="h3"
           fontFamily={"Libre Baskerville, serif"}
           fontStyle="italic"
+          sx={{
+            fontSize: { xs: "1.5rem", sm: "2rem", md: "3rem" }, // Responsive font size
+          }}
         >
           Austin Real Estate Services You Can Trust.
         </Typography>
@@ -25,6 +32,9 @@ const Promotion = () => {
           fontFamily={"Roboto, sans-serif"}
           marginTop={2}
           lineHeight={2}
+          sx={{
+            fontSize: { xs: "0.8rem", sm: "1rem", md: "1.2rem" }, // Responsive font size
+          }}
         >
           Whether you're looking to sell your property at top value or find the
           perfect home in the heart of Austin, Olivia Marks Real Estate combines
@@ -32,8 +42,8 @@ const Promotion = () => {
           goals a reality. From pricing your home right to negotiating on your
           behalf, we handle the details—so you don't have to.
         </Typography>
-        <Box display={"flex"}>
-          {["Start Your Selling Journey", "Find Your Dream Home"].map(
+        <Box display={"flex"} flexWrap="wrap">
+          {["Start Your Journey", "Find Your Dream Home"].map(
             (text, index) => (
               <Button
                 key={index}
@@ -58,8 +68,8 @@ const Promotion = () => {
 
       {/* Right Section: Image */}
       <Box
-        width={"50%"}
-        height={"100%"}
+        width={{ xs: "100%", md: "50%" }} // Full width on small screens, half on larger screens
+        height={{ xs: "300px", md: "100%" }} // Adjust height for smaller screens
         sx={{
           backgroundImage: `url(${room})`,
           backgroundSize: "cover",
